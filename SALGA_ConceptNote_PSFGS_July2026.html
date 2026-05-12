@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PSFGS Concept Note — SALGA Annual Conference July 2026</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
+      font-size: 10.5pt;
+      color: #1a1a2e;
+      background: #f0f0f0;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 12mm auto;
+      background: #fff;
+      padding: 16mm 18mm 14mm 18mm;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+      position: relative;
+    }
+
+    /* ── HEADER BAND ── */
+    .header-band {
+      background: linear-gradient(135deg, #1F3864 0%, #2E75B6 100%);
+      margin: -16mm -18mm 0 -18mm;
+      padding: 14mm 18mm 10mm 18mm;
+      color: #fff;
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+    .brand-block h1 {
+      font-size: 26pt;
+      font-weight: 800;
+      letter-spacing: 3px;
+      color: #fff;
+    }
+    .brand-block .tagline {
+      font-size: 8.5pt;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
+    .conference-badge {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 6px;
+      padding: 8px 14px;
+      text-align: right;
+      font-size: 8.5pt;
+    }
+    .conference-badge .conf-label {
+      color: rgba(255,255,255,0.7);
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .conference-badge .conf-name {
+      color: #fff;
+      font-weight: 700;
+      font-size: 9.5pt;
+      margin-top: 2px;
+    }
+    .conference-badge .conf-date {
+      color: #AED6F1;
+      font-size: 8pt;
+    }
+    .header-title {
+      border-top: 1px solid rgba(255,255,255,0.25);
+      padding-top: 10px;
+    }
+    .header-title h2 {
+      font-size: 14pt;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+    }
+    .header-title p {
+      font-size: 9pt;
+      color: rgba(255,255,255,0.78);
+      margin-top: 4px;
+    }
+
+    /* ── BODY ── */
+    .body-content { margin-top: 14px; }
+
+    /* Stat strip */
+    .stat-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .stat-box {
+      background: #EEF5FC;
+      border-radius: 6px;
+      padding: 8px 10px;
+      text-align: center;
+      border-top: 3px solid #2E75B6;
+    }
+    .stat-box .num {
+      font-size: 18pt;
+      font-weight: 800;
+      color: #1F3864;
+      line-height: 1.1;
+    }
+    .stat-box .lbl {
+      font-size: 7pt;
+      color: #5A6478;
+      margin-top: 2px;
+      line-height: 1.3;
+    }
+    .stat-box.red { border-top-color: #C0392B; background: #FEF0EF; }
+    .stat-box.red .num { color: #C0392B; }
+    .stat-box.amber { border-top-color: #D4861A; background: #FFF8E6; }
+    .stat-box.amber .num { color: #D4861A; }
+    .stat-box.green { border-top-color: #1A6B3C; background: #EEF8F2; }
+    .stat-box.green .num { color: #1A6B3C; }
+
+    h3 {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #1F3864;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 2px solid #2E75B6;
+      padding-bottom: 3px;
+      margin-bottom: 7px;
+      margin-top: 13px;
+    }
+
+    p { font-size: 9.5pt; line-height: 1.55; color: #2C3E50; margin-bottom: 6px; }
+    strong { color: #1F3864; }
+
+    /* Two-column layout */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 0; }
+    .col-block h3 { margin-top: 0; }
+
+    /* Module grid */
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px;
+      margin-bottom: 8px;
+    }
+    .module-item {
+      background: #F4F6F9;
+      border-radius: 5px;
+      padding: 5px 8px;
+      font-size: 8pt;
+      color: #1F3864;
+      border-left: 3px solid #2E75B6;
+    }
+    .module-item span { display: block; color: #8B93A7; font-size: 7pt; }
+
+    /* Pricing table */
+    table.pricing {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9pt;
+      margin-bottom: 8px;
+    }
+    table.pricing th {
+      background: #1F3864;
+      color: #fff;
+      padding: 5px 8px;
+      text-align: left;
+      font-size: 8pt;
+    }
+    table.pricing td {
+      padding: 5px 8px;
+      border-bottom: 1px solid #E8ECF2;
+      font-size: 8.5pt;
+    }
+    table.pricing tr:nth-child(even) td { background: #F8F9FC; }
+    table.pricing td.price { font-weight: 700; color: #1A6B3C; }
+    table.pricing td.note { font-size: 7.5pt; color: #8B93A7; }
+
+    /* Callout boxes */
+    .callout {
+      border-radius: 6px;
+      padding: 9px 12px;
+      font-size: 9pt;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    .callout.blue { background: #EEF5FC; border-left: 4px solid #2E75B6; color: #1F3864; }
+    .callout.green { background: #EEF8F2; border-left: 4px solid #1A6B3C; color: #1A4D2E; }
+    .callout.amber { background: #FFF8E6; border-left: 4px solid #D4861A; color: #5A3E00; }
+
+    /* Steps */
+    .steps { counter-reset: step; list-style: none; }
+    .steps li {
+      counter-increment: step;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 5px;
+      font-size: 9pt;
+    }
+    .steps li::before {
+      content: counter(step);
+      background: #2E75B6;
+      color: #fff;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 7.5pt;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+
+    /* Bullets */
+    .bullets { list-style: none; padding: 0; }
+    .bullets li {
+      padding-left: 14px;
+      position: relative;
+      font-size: 9pt;
+      line-height: 1.55;
+      margin-bottom: 3px;
+      color: #2C3E50;
+    }
+    .bullets li::before {
+      content: '▸';
+      color: #2E75B6;
+      position: absolute;
+      left: 0;
+      font-size: 8pt;
+      top: 1px;
+    }
+
+    /* ── FOOTER BAND ── */
+    .footer-band {
+      background: #1F3864;
+      margin: 14px -18mm -14mm -18mm;
+      padding: 9px 18mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-band .f-left { color: rgba(255,255,255,0.9); font-size: 8pt; }
+    .footer-band .f-left strong { color: #fff; font-size: 9pt; display: block; }
+    .footer-band .f-right { text-align: right; color: rgba(255,255,255,0.75); font-size: 7.5pt; line-height: 1.6; }
+    .footer-band .f-center { color: rgba(255,255,255,0.5); font-size: 7pt; text-align: center; }
+    .page-num {
+      position: absolute;
+      bottom: 6mm;
+      right: 18mm;
+      font-size: 7.5pt;
+      color: #8B93A7;
+    }
+
+    /* Divider */
+    hr { border: none; border-top: 1px solid #E8ECF2; margin: 10px 0; }
+
+    /* Partnership highlight */
+    .partner-box {
+      background: linear-gradient(135deg, #EEF5FC, #F4F6F9);
+      border: 1px solid #C5D8EF;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-top: 8px;
+    }
+    .partner-box .p-title {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #1F3864;
+      margin-bottom: 5px;
+    }
+    .partner-box .p-items {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+    }
+    .partner-box .p-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 5px;
+      font-size: 8.5pt;
+      color: #2C3E50;
+    }
+    .partner-box .p-item::before { content: '✓'; color: #1A6B3C; font-weight: 700; }
+
+    /* CTA block */
+    .cta-block {
+      background: linear-gradient(135deg, #1F3864, #2E75B6);
+      border-radius: 8px;
+      padding: 12px 16px;
+      color: #fff;
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .cta-block .cta-text h4 { font-size: 11pt; margin-bottom: 4px; }
+    .cta-block .cta-text p { font-size: 8.5pt; color: rgba(255,255,255,0.82); margin: 0; }
+    .cta-block .cta-contact { text-align: right; font-size: 8.5pt; color: rgba(255,255,255,0.9); line-height: 1.8; min-width: 200px; }
+    .cta-block .cta-contact strong { color: #fff; font-size: 9.5pt; display: block; }
+
+    @media print {
+      body { background: #fff; }
+      .page { margin: 0; box-shadow: none; width: 100%; min-height: auto; }
+      @page { size: A4; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════  PAGE 1  ═══════════════════════════ -->
+<div class="page">
+
+  <div class="header-band">
+    <div class="header-top">
+      <div class="brand-block">
+        <h1>PSFGS</h1>
+        <div class="tagline">PUBLIC SECTOR FINANCIAL GOVERNANCE SUITE</div>
+      </div>
+      <div class="conference-badge">
+        <div class="conf-label">Presented at</div>
+        <div class="conf-name">SALGA National Members' Assembly</div>
+        <div class="conf-date">July 2026 · Cape Town International Convention Centre</div>
+      </div>
+    </div>
+    <div class="header-title">
+      <h2>Achieving Clean Audits Through Technology:<br/>A Purpose-Built Governance Platform for South African Municipalities</h2>
+      <p>Concept Note · Submitted by Glance Management Technologies (Pty) Ltd · Proprietary &amp; Confidential</p>
+    </div>
+  </div>
+
+  <div class="body-content">
+
+    <!-- Stats strip -->
+    <div class="stat-strip" style="margin-top:14px;">
+      <div class="stat-box red">
+        <div class="num">163</div>
+        <div class="lbl">Municipalities with qualified, adverse or disclaimer opinions (AGSA 2023/24)</div>
+      </div>
+      <div class="stat-box amber">
+        <div class="num">67%</div>
+        <div class="lbl">Of findings are repeat findings — same issues year after year</div>
+      </div>
+      <div class="stat-box red">
+        <div class="num">R26bn</div>
+        <div class="lbl">Irregular expenditure incurred by municipalities in 2023/24</div>
+      </div>
+      <div class="stat-box green">
+        <div class="num">90</div>
+        <div class="lbl">Days — target resolution window per AGSA finding under MFMA</div>
+      </div>
+    </div>
+
+    <!-- Problem -->
+    <h3>The Problem: Governance Failures Are Systemic and Recurring</h3>
+    <p>
+      South African municipalities face a compounding governance crisis. Despite billions invested in audit support, consultants, and training, <strong>the number of municipalities with clean audits has stagnated below 30</strong> for six consecutive years. The root cause is not a lack of awareness — it is a lack of <em>structured, real-time tooling</em> to track, remediate, and evidence corrective action between audits.
+    </p>
+    <p>
+      Accounting Officers, CFOs, and Directors operate across disconnected spreadsheets, email chains, and manual registers. Findings raised in October are forgotten by March. Evidence submitted to Internal Audit is lost or unverifiable. Section 71 reports are compiled at month-end in a panic. Consequence management cases stall for years without tracking. The AGSA raises the same findings. Audit opinions deteriorate.
+    </p>
+    <div class="callout amber">
+      <strong>The cost of non-compliance:</strong> A municipality with a Qualified opinion forfeits credibility with investors, development finance institutions, and the National Treasury — triggering Section 139 interventions, withheld equitable share allocations, and reputational damage that affects service delivery for millions of residents.
+    </div>
+
+    <!-- Solution -->
+    <h3>The Solution: PSFGS — Governance Infrastructure for Every Municipality</h3>
+    <p>
+      The <strong>Public Sector Financial Governance Suite (PSFGS)</strong> is a South African-built, MFMA-native, cloud-based platform that digitises and automates the full spectrum of municipal financial governance — from the moment an audit finding is raised to the day it is formally closed.
+    </p>
+
+    <div class="module-grid">
+      <div class="module-item">Audit Findings Tracker (AFT)<span>End-to-end finding lifecycle</span></div>
+      <div class="module-item">Budget vs Actual Monitor (BVM)<span>Real-time vote monitoring</span></div>
+      <div class="module-item">IFWE Register (IFW)<span>Irregular expenditure tracking</span></div>
+      <div class="module-item">SCM Compliance Checker (SCC)<span>Procurement rule enforcement</span></div>
+      <div class="module-item">Section 71 Auto-Generator (S71)<span>NT monthly reports, automated</span></div>
+      <div class="module-item">Asset Verification System (AVS)<span>Physical asset reconciliation</span></div>
+      <div class="module-item">Consequence Management (CMT)<span>Case tracking &amp; outcomes</span></div>
+      <div class="module-item">Delegation of Authority (DAR)<span>Approval matrix register</span></div>
+      <div class="module-item">Policy Compliance Manager (PCR)<span>Policy review &amp; status</span></div>
+      <div class="module-item">Performance KPI Dashboard (PKD)<span>IDP targets vs actuals</span></div>
+      <div class="module-item">Executive Reporting Portal (ERP)<span>MM/Mayor governance view</span></div>
+      <div class="module-item">Entity Settings &amp; Branding<span>Configurable per municipality</span></div>
+    </div>
+
+    <div class="two-col">
+      <div class="col-block">
+        <h3>How It Works</h3>
+        <ul class="bullets">
+          <li><strong>Cloud-hosted SaaS</strong> — no hardware procurement required</li>
+          <li><strong>Multi-tenant</strong> — each municipality's data is fully isolated</li>
+          <li><strong>Role-based access</strong> — Auditor, Director, CFO, MM each see only what they need</li>
+          <li><strong>MFMA workflow-aligned</strong> — finding stages mirror AGSA protocols</li>
+          <li><strong>AI-assisted analysis</strong> — identifies trends, repeat findings, at-risk votes</li>
+          <li><strong>Configurable branding</strong> — entity logo, name, leadership details per municipality</li>
+          <li><strong>Offline-capable</strong> — field asset verification without internet dependency</li>
+        </ul>
+      </div>
+      <div class="col-block">
+        <h3>Who Uses It</h3>
+        <ul class="bullets">
+          <li><strong>Internal Audit</strong> — captures and tracks every finding with evidence</li>
+          <li><strong>City Manager / MM</strong> — assigns findings, monitors remediation progress</li>
+          <li><strong>CFO</strong> — approves closures, signs Section 71 reports automatically</li>
+          <li><strong>Directorate Managers</strong> — implements corrective actions with deadlines</li>
+          <li><strong>Council / MPAC</strong> — oversight dashboard and escalation notifications</li>
+          <li><strong>National Treasury / AGSA</strong> — structured evidence package at year-end</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="page-num">Page 1 of 2</div>
+</div>
+
+
+<!-- ═══════════════════════════  PAGE 2  ═══════════════════════════ -->
+<div class="page">
+
+  <div class="header-band" style="padding: 10mm 18mm 8mm 18mm;">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <div>
+        <div style="font-size:10pt; font-weight:700; color:#fff;">PSFGS — Concept Note (continued)</div>
+        <div style="font-size:8pt; color:rgba(255,255,255,0.7);">Glance Management Technologies (Pty) Ltd · SALGA National Members' Assembly · July 2026</div>
+      </div>
+      <div style="font-size:8pt; color:rgba(255,255,255,0.7); text-align:right;">
+        Proprietary &amp; Confidential<br/>Not for Distribution
+      </div>
+    </div>
+  </div>
+
+  <div class="body-content">
+
+    <div class="two-col" style="margin-top:14px;">
+
+      <!-- LEFT COLUMN -->
+      <div class="col-block">
+        <h3>Why Now? The SALGA Opportunity</h3>
+        <p>
+          SALGA's mandate is to strengthen local government capacity. PSFGS directly advances three of SALGA's stated 2024–2029 strategic priorities: <strong>financial sustainability, good governance, and audit outcome improvement.</strong>
+        </p>
+        <p>
+          A SALGA-endorsed master agreement removes the need for each of the 257 municipalities to run individual procurement processes. Municipalities access the platform under a <strong>cooperative procurement arrangement</strong> — legally sound under MFMA SCM Regulations — cutting procurement time from 6 months to 2 weeks.
+        </p>
+
+        <h3>Procurement — No Tender Required</h3>
+        <p>
+          PSFGS is priced deliberately within the <strong>R200,000 threshold</strong> that permits procurement by written quotation under MFMA SCM Regulations. Individual municipalities require no public tender advertisement, no CIDB registration, and no council approval — only three quotes and a CFO sign-off.
+        </p>
+        <div class="callout blue" style="margin-top:6px;">
+          <strong>SALGA Master Agreement route:</strong> One cooperative procurement event establishes the framework. All member municipalities subscribe directly. Estimated time-to-activation per municipality: <strong>10–15 working days.</strong>
+        </div>
+
+        <h3>Pricing — Affordable at Every Tier</h3>
+        <table class="pricing">
+          <thead>
+            <tr>
+              <th>Municipality Type</th>
+              <th>Count</th>
+              <th>Annual Fee</th>
+              <th>Procurement Route</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Metropolitan (Cat A)</strong></td>
+              <td>8</td>
+              <td class="price">R 180,000</td>
+              <td class="note">3 Quotations</td>
+            </tr>
+            <tr>
+              <td><strong>District (Cat C)</strong></td>
+              <td>44</td>
+              <td class="price">R 95,000</td>
+              <td class="note">3 Quotations</td>
+            </tr>
+            <tr>
+              <td><strong>Local (Cat B)</strong></td>
+              <td>205</td>
+              <td class="price">R 48,000</td>
+              <td class="note">3 Quotations</td>
+            </tr>
+            <tr style="background:#EEF5FC;">
+              <td colspan="2"><strong>Full addressable market (257 municipalities)</strong></td>
+              <td class="price" style="color:#1F3864;">R 16.7M / yr</td>
+              <td class="note">Via SALGA agreement</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="font-size:8pt; color:#8B93A7;">All pricing excludes VAT. Implementation support (R15,000 once-off) available for first-time onboarding.</p>
+
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="col-block">
+        <h3>Proposed SALGA Partnership Model</h3>
+        <div class="partner-box">
+          <div class="p-title">What GMT Offers SALGA</div>
+          <div class="p-items">
+            <div class="p-item">Endorsed platform for all 257 member municipalities</div>
+            <div class="p-item">SALGA co-branding on the platform portal</div>
+            <div class="p-item">Quarterly aggregated governance analytics for SALGA reporting</div>
+            <div class="p-item">10% of net revenue contributed to SALGA capacity fund</div>
+            <div class="p-item">Free deployment for 5 SALGA-nominated pilot municipalities</div>
+            <div class="p-item">Annual clean audit progress report for SALGA AGM</div>
+          </div>
+        </div>
+
+        <h3 style="margin-top:10px;">Implementation — Pilot to National Rollout</h3>
+        <ul class="steps">
+          <li><strong>Q3 2026 (Aug–Sep):</strong> Onboard 5 SALGA-nominated pilot municipalities across 3 provinces. Zero cost to pilots.</li>
+          <li><strong>Q4 2026 (Oct–Nov):</strong> Present pilot outcomes at COGTA Municipal Finance Indaba. Initiate master agreement finalisation.</li>
+          <li><strong>Q1 2027 (Jan–Mar):</strong> Open subscription to all 257 municipalities. Target 25 active by March 31.</li>
+          <li><strong>FY 2027/28:</strong> Scale to 80+ municipalities. Integrate with National Treasury eSourcing portal and AGSA management letter system.</li>
+          <li><strong>FY 2028/29:</strong> Full national coverage. Introduce predictive audit risk scoring and NT real-time reporting API.</li>
+        </ul>
+
+        <h3>Regulatory Alignment &amp; Trust Signals</h3>
+        <ul class="bullets">
+          <li><strong>MFMA Sections 32, 62, 71, 72, 121, 131</strong> — all compliance requirements embedded in platform workflows</li>
+          <li><strong>AGSA Finding Protocol</strong> — lifecycle stages mirror AG management letter structure exactly</li>
+          <li><strong>NT Circular 88 &amp; Instruction Note 5</strong> — budget monitoring aligned to NT reporting formats</li>
+          <li><strong>POPIA compliant</strong> — data stored in South Africa; role-based access; full audit trail</li>
+          <li><strong>CSD registered supplier</strong> — Central Supplier Database active; B-BBEE Level 1</li>
+        </ul>
+
+        <div class="callout green" style="margin-top:8px;">
+          <strong>Reference client:</strong> Buffalo City Metropolitan Municipality (BCMM) — fully operational deployment across 10 directorates with 35 user accounts. Live audit finding workflow, Section 71 reporting, SCM compliance checking, and IFWE register in production as of April 2026.
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <!-- CTA block -->
+    <div class="cta-block">
+      <div class="cta-text">
+        <h4>Ready to pilot PSFGS at your municipality?</h4>
+        <p>Request a live demonstration at the SALGA conference stand or schedule a remote walkthrough with your Internal Audit and CFO teams. First 5 SALGA-nominated municipalities onboard free of charge.</p>
+      </div>
+      <div class="cta-contact">
+        <strong>Glance Management Technologies (Pty) Ltd</strong>
+        info@glancemanagement.co.za<br/>
+        www.psfgs.co.za<br/>
+        +27 (0) 11 000 0000<br/>
+        CSD Reg · B-BBEE Level 1
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-band">
+    <div class="f-left">
+      <strong>PSFGS — Public Sector Financial Governance Suite</strong>
+      Built for South African municipalities · MFMA-native · Cloud-hosted SaaS
+    </div>
+    <div class="f-center">
+      © 2026 Glance Management Technologies (Pty) Ltd<br/>All rights reserved · Proprietary &amp; Confidential
+    </div>
+    <div class="f-right">
+      SALGA National Members' Assembly<br/>
+      July 2026 · Cape Town
+    </div>
+  </div>
+
+  <div class="page-num">Page 2 of 2</div>
+</div>
+
+</body>
+</html>
